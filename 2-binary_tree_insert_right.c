@@ -17,8 +17,6 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 	new_node = binary_tree_node(parent, value);
 
 	/*connect the new node with the tree */
-	/*if the tree is empty: */
-
 	if (parent->right != NULL)
 	{
 		tmp = parent->right;
