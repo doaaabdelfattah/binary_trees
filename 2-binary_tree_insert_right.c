@@ -16,19 +16,15 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 
 	/*connect the new node with the tree */
 	/*if the tree is empty: */
-	if (parent == NULL)
-		parent = new_node;
-	else
+
+	if (parent->right != NULL)
 	{
-		if (parent->right != NULL)
-		{
-			tmp = parent->right;
-			parent->right = new_node;
-			new_node->right = tmp;
-			tmp->parent = new_node;
-		}
-		/*If the right child is NULL, simply insert the new node*/
+		tmp = parent->right;
 		parent->right = new_node;
+		new_node->right = tmp;
+		tmp->parent = new_node;
 	}
+	/*If the right child is NULL, simply insert the new node*/
+	parent->right = new_node;
 	return (new_node);
 }
