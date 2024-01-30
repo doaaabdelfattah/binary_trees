@@ -11,13 +11,12 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 	binary_tree_t *new_node;
 	binary_tree_t *tmp;
 
+	if (parent == NULL)
+		return (NULL);
 	/* Dynamically create BT node */
 	new_node = binary_tree_node(parent, value);
 
 	/*connect the new node with the tree */
-	/*if the tree is empty: */
-	if (parent == NULL)
-		return (NULL);
 	/*If the left child is NULL, simply insert the new node*/
 	if (parent->left == NULL)
 		parent->left = new_node;
@@ -28,6 +27,5 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 		new_node->left = tmp;
 		tmp->parent = new_node;
 	}
-
 	return (new_node);
 }
