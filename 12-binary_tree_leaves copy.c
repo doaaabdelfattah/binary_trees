@@ -6,19 +6,19 @@
  */
 size_t binary_tree_leaves(const binary_tree_t *tree)
 {
-	size_t count;
+	size_t Right, Left;
 
-	count = 0;
+	Right = Left = 0;
 	/* Base Case: if tree is empty */
 	if (tree == NULL)
 		return (0);
 
     /* Check if the current node is a leaf */
 	if (tree->left == NULL && tree->right == NULL)
-		count += 1;
+		return (1);
 
-	count += binary_tree_leaves(tree->left);
-	count += binary_tree_leaves(tree->right);
+	Left = binary_tree_leaves(tree->left);
+	Right = binary_tree_leaves(tree->right);
 
-	return (count);
+	return (Left + Right);
 }
